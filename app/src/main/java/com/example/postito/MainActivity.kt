@@ -32,34 +32,19 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         getMethod()
+        val dialog = BottomSheetDialog(this)
+        val views = layoutInflater.inflate(R.layout.bottomsheet, null)
 
-        binding.open.setOnClickListener {
-
-            // on below line we are creating a new bottom sheet dialog.
-            val dialog = BottomSheetDialog(this)
-
-            // on below line we are inflating a layout file which we have created.
-            val view = layoutInflater.inflate(R.layout.bottomsheet, null)
-
-
-            val btnClose = view.findViewById<Button>(R.id.btnClose)
+        // on below line we are creating a variable for our button
+        // which we are using to dismiss our dialog.
+       /* val btnClose = views.findViewById<Button>(R.id.btnClose)
+        btnClose.setOnClickListener {
+            Toast.makeText(this,"")
+        }*/
 
 
-            btnClose.setOnClickListener {
 
-                dialog.dismiss()
-            }
-
-            dialog.setCancelable(false)
-
-
-            dialog.setContentView(view)
-
-
-            dialog.show()
-        }
     }
-
 
     private fun showData(body: List<PostDetail>) {
         binding.rvPosts.apply {
