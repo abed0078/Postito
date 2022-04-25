@@ -1,10 +1,9 @@
 package com.example.postito
 
-import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.POST
 
 
 public interface Service{
@@ -12,8 +11,9 @@ public interface Service{
    // suspend fun getPosts( @Query("{userId}") userId:Int): Response<ResponseBody>
     fun getPosts(): Call<List<PostDetail>>
 
-    @GET("/posts/10")
-    fun getPostDetails(): Call<List<PostDetail>>
+    @POST("posts")
+    fun  //on below line we are creating a method to post our data.
+            createPost(@Body dataModal: PostDetail?): Call<PostDetail?>?
 
 
 }
