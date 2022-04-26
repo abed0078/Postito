@@ -36,6 +36,7 @@ class PostAdapter(val context: Context, private val postsList: List<PostDetail>)
         val posts = postsList[position]
         holder.bind(posts)
 
+
     }
 
     override fun getItemCount() = postsList.size

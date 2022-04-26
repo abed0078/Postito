@@ -13,7 +13,7 @@ class PostDetailsActivity : AppCompatActivity() {
         binding = ActivityPostDetailsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-           binding.title2.text = getIntent().getStringExtra("POST_TITLE")
+           binding.title2.text = intent.getStringExtra("POST_TITLE")
 
         }
 

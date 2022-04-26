@@ -3,20 +3,19 @@ package com.example.postito
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.postito.databinding.ActivityMainBinding
+import com.example.postito.databinding.ActivityPostBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 
 private const val TAG = "MainActivity"
@@ -29,18 +28,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
         val view = binding.root
         setContentView(view)
         getMethod()
-        val dialog = BottomSheetDialog(this)
-        val views = layoutInflater.inflate(R.layout.bottomsheet, null)
+        binding.button.setOnClickListener {
+            val intent = Intent(this@MainActivity, PostActivity::class.java)
+            startActivity(intent)
+        }
 
-        // on below line we are creating a variable for our button
-        // which we are using to dismiss our dialog.
-       /* val btnClose = views.findViewById<Button>(R.id.btnClose)
-        btnClose.setOnClickListener {
-            Toast.makeText(this,"")
-        }*/
 
 
 
@@ -91,10 +87,11 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
-    fun postMethod(UserId:Int ,id:Int ,title:String, body:String ) {
-    }
 
-}
+
+
+        }
+
 
 
 
